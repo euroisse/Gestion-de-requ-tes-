@@ -10,13 +10,13 @@
 <body>
     <nav class="navbar"> 
         <div class="logo">
-            <img src="Nike-logo-076372420C-seeklogo.com.png" alt="logo">
+            <img src="S (1).png" alt="logo">
         </div>
         
         <ul>
                 <li><a href="Accueil.html">Accueil</a></li>
                 <li><a href="requetesEtudiant.html">Mes requetes</a></li>
-                <li class="active"><a href="NouvelleRequete.html">Nouvelles requetes</a></li>
+                <li class="active"><a href="form.html">Nouvelles requetes</a></li>
                 <li><a href="Suivie-matiere">Suivie Matiere</a></li>
         </ul>
         
@@ -31,7 +31,7 @@
     <!--form-->
     <div class="form-container">
         <h1>Formulaire de requete</h1>
-       <form>
+       <form id="newRequestForm">
         <div class="form-group">
             <label>Année academique</label>
             <input type="text" id="année" placeholder="Entrez l'année academique">
@@ -78,7 +78,7 @@
             <label >Details du probleme :</label>
             <textarea placeholder="Expliquez le probleme" id="details"></textarea>
         </div>
-        <button type="submit" class="submit" class="submit-btn">Envoyer</button>
+        <button type="submit" class="submit-btn">Envoyer</button>
     </div>
        </form>
     </div>
@@ -108,40 +108,46 @@
         
     </footer>
     <script>
-     document.getElementById('newRequestForm').addEventListener('submit',function (event){
-            event.preventDefault();
+   document.getElementById('newRequestForm').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
-            const NomEleve = document.getElementById('name').value;
-            const Année = document.getElementById('year').value;
-            const matricule = document.getElementById('matricule').value;
-            const NomProf = document.getElementById('NosProf').value;
-            const emailProf = document.getElementById('emailProf').value;
-            const precision = document.getElementById('precision').value;
-            const details = document.getElementById('details').value;
-            if(NomEleve && Année && matricule && Nomprof && emailProf  && precision && details && date )
-        try{
-             const newRequest = { 
-                NomEleve:NomEleve,
-                Année: Année,
-                matricule:matricule,
-                Nomprof:Nomprof,
-                emailProf:emailProf,
-                precision:precision,
-                details:details, 
-                date: new Date().toISOString().split('T')[0]
-            };
-            const requests = JSON.parse(localStorage.getItem('requests')) || [];
-            requests.push(newRequest);
-            localStorage.setItem('requests',JSON.stringify(requests));
-           
-            window.location.href = 'C:/Users/ryane/Desktop/GESTIONNAIRE%20DE%20REQUETE/code/NouvelleRequete.html';
-        } catch (error) {
-            console.error("veille remplir",error);
-            }
-         } else {
-            alert('veillez');
+    // Récupération des valeurs saisies
+    const data = {
+        NomEleve: document.getElementById('name').value.trim(),
+        Année: document.getElementById('année').value.trim(),
+        Matricule: document.getElementById('matricule').value.trim(),
+        NomProf: document.getElementById('Nomprof').value.trim(),
+        EmailProf: document.getElementById('emailProf').value.trim(),
+        Precision: document.getElementById('precision').value.trim(),
+        Details: document.getElementById('details').value.trim(),
+        Date: new Date().toISOString().split('T')[0] // Ajoute la date courante
+    };
+
+    try {
+        // Envoie des données à JSON Server
+        const response = await fetch('http://localhost:3000/requests', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data) // Conversion des données en JSON
+        });
+
+        if (response.ok) {
+            // Si l'enregistrement réussit :
+            alert('Requête soumise avec succès !Votre requête a été enregistrée et sera traitée dans les plus brefs délais.'); // Affiche un message en pop-up
+
+            // Réinitialise le formulaire (vide les champs)
+            document.getElementById('newRequestForm').reset();
+        } else {
+            // Si l'enregistrement échoue :
+            alert('Erreur lors de l\'envoi de la requête.');
         }
-    }); 
+    } catch (error) {
+        console.error('Erreur :', error);
+        alert('Une erreur s\'est produite. Vérifiez votre connexion au serveur.');
+    }
+});
+
+
     </script>
 </body>
 </html>

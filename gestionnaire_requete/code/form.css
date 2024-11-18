@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: rgb(207, 207, 207);
+    background-color: white;
     display: flex;
 justify-content: center;
 vertical-align: middle;
@@ -15,9 +15,10 @@ padding: 5% 0;
 .all{
 
     background-color: white;
-    height: 50%;
-    width: 33%;
+    width: 500px;
+    height: 500px;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     
 }
 
@@ -37,9 +38,11 @@ border-radius: 5px;
 .up{
     display: flex;
     flex-direction: row;
-    margin: 20px 35px;
-    gap: 40%;
+    margin: 20px 50px;
+    justify-content: space-between;
 }
+
+
 .icone{
     display: flex;
     justify-content: center;
@@ -47,48 +50,58 @@ border-radius: 5px;
     flex-direction: column;
 }
 .icone i{
-    font-size: 30px;
+    font-size: 40px;
+    margin-bottom: 10px;
  
 }
 .icone h3{
     font-size: 20px;
     margin-bottom: 29px;
+  
   }
 .form input{
  border: none;
  border-bottom: 2px solid black;
- margin: 20px 35px;
- width: 80%;
+ margin: 20px 10px;
+ width: 90%;
 }
+.pseudo,
+.Mot {
+    display: flex; 
+    align-items: center; 
+    margin: 10px 30px;
+    
+}
+
+.pseudo i,
+.Mot i {
+    font-size: 18px; 
+    color: #060708;
+};
+
 .remember{
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-.remember .rappeler{
-    display: flex;
-    flex-direction: row;
-  
-}
-.remember .rappeler input{
-    accent-color: #3b82fe;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 35px;
+   
     
+   
 }
-.remember .rappeler input[type=checkbox]{
-   position: relative;
-   bottom: 18px;
-    
-}
-.remember .rappeler label{
-    position: relative;
-    right: 26px;
 
-}
-.remember .oublier  a{
+   .rappel{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+   }
+
+
+.remember  a {
     text-decoration: none;
     color: #3B82F6;
-    position: relative;
-    left: 23px;
+   font-size: 14px;
+   margin-left: auto;
+    
 }
 button{
     margin-bottom: 50px;
