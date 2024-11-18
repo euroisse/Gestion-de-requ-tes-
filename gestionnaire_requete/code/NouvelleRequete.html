@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="Nouvellerequete.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar"> 
+        <div class="logo">
+            <img src="Nike-logo-076372420C-seeklogo.com.png" alt="logo">
+        </div>
+        
+        <ul>
+                <li><a href="Accueil.html">Accueil</a></li>
+                <li><a href="requetesEtudiant.html">Mes requetes</a></li>
+                <li class="active"><a href="NouvelleRequete.html">Nouvelles requetes</a></li>
+                <li><a href="Suivie-matiere">Suivie Matiere</a></li>
+        </ul>
+        
+        <div class="user-profile">
+           <i class="fa fas fa-bell"></i>
+            <img src="businesswoman-executive-professional-success-concept_53876-137644.JPG" alt="profil">
+           
+        </div>
+    </nav>
+
+    
+    <!--form-->
+    <div class="form-container">
+        <h1>Formulaire de requete</h1>
+       <form>
+        <div class="form-group">
+            <label>Année academique</label>
+            <input type="text" id="année" placeholder="Entrez l'année academique">
+        </div>
+        <div class="form-group">
+            <label>Nom et prenom</label>
+            <input type="text" id="name" placeholder="Entrez le nom et le prénom">
+        </div>
+        <div class="form-group">
+            <label >Matricule</label>
+            <input type="text" placeholder="Entrez le matricule">
+        </div>
+        <div class="form-group">
+            <label >Département</label>
+            <input type="text" id="matricule" placeholder="Entrez le Département">
+        </div>
+        <div class="form-group">
+            <label >Nom Prof</label>
+            <input type="text" id="Nomprof" placeholder="Nom prof">
+        </div>
+        <div class="form-group">
+            <label >emailProf</label>
+            <input type="email" id="emailProf" placeholder="email@.com">
+        </div>
+        <div class="form-group">
+            <label >Matiere</label>
+            <input type="text" placeholder="Entrez la Matiére">
+        </div>
+        <div class="form-group"></div>
+            <label >Cochez le probleme a traiter:</label>
+            <div class="checkbox-group">
+                <input type="checkbox">Absence de note
+                <input type="checkbox">Examen
+                <input type="checkbox">CC
+                <input type="checkbox">Tpe
+
+            </div> 
+        
+        <div class="form-group">
+            <label >Preciser (Autres) :</label>
+            <input type="text" id="precision" placeholder="Expliquez">
+        </div>
+        <div class="form-group">
+            <label >Details du probleme :</label>
+            <textarea placeholder="Expliquez le probleme" id="details"></textarea>
+        </div>
+        <button type="submit" class="submit" class="submit-btn">Envoyer</button>
+    </div>
+       </form>
+    </div>
+
+    <!--footer-->
+    <footer class="footer">
+        <div class="pass">
+            <div>Rendez-vous sur votre tableau<br>
+                de bord etudiant,puis  cliquez sur <br>
+                "Soumettre une requete"  Remplissez<br>
+               le formulaire et validez</div>
+        
+                <div>Adresse : ENSPD-Douala, Campus Logbessou<br>
+                    Telephone: +237 6 XX XX XX XX <br>
+                    Email : contact@polytechnique-douala.com<br>
+                </div>
+                <div>Site officiel: polytechnique Douala<br>
+                    Portail etudiant: Portail etudiant<br>
+                    polytechnique Douala
+                </div>
+                <div >
+                   <h2>Reseaux sociaux</h2> <br>
+                    Facebook,Twitter,<br>
+                    Linkedin,Youtube
+                </div>
+        </div>
+        
+    </footer>
+    <script>
+     document.getElementById('newRequestForm').addEventListener('submit',function (event){
+            event.preventDefault();
+
+            const NomEleve = document.getElementById('name').value;
+            const Année = document.getElementById('year').value;
+            const matricule = document.getElementById('matricule').value;
+            const NomProf = document.getElementById('NosProf').value;
+            const emailProf = document.getElementById('emailProf').value;
+            const precision = document.getElementById('precision').value;
+            const details = document.getElementById('details').value;
+            if(NomEleve && Année && matricule && Nomprof && emailProf  && precision && details && date )
+        try{
+             const newRequest = { 
+                NomEleve:NomEleve,
+                Année: Année,
+                matricule:matricule,
+                Nomprof:Nomprof,
+                emailProf:emailProf,
+                precision:precision,
+                details:details, 
+                date: new Date().toISOString().split('T')[0]
+            };
+            const requests = JSON.parse(localStorage.getItem('requests')) || [];
+            requests.push(newRequest);
+            localStorage.setItem('requests',JSON.stringify(requests));
+           
+            window.location.href = 'C:/Users/ryane/Desktop/GESTIONNAIRE%20DE%20REQUETE/code/NouvelleRequete.html';
+        } catch (error) {
+            console.error("veille remplir",error);
+            }
+         } else {
+            alert('veillez');
+        }
+    }); 
+    </script>
+</body>
+</html>

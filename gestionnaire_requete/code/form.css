@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: rgb(207, 207, 207);
+    display: flex;
+justify-content: center;
+vertical-align: middle;
+padding: 5% 0;
+}
+.all{
+
+    background-color: white;
+    height: 50%;
+    width: 33%;
+    border-radius: 8px;
+    
+}
+
+.form{
+    margin: 6px 30px;
+border-radius: 5px;
+}
+.form .pseudo{
+    display: flex;
+    flex-direction: row;
+   
+}
+.form .Mot{
+    display: flex;
+    flex-direction: row;
+}
+.up{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 35px;
+    gap: 40%;
+}
+.icone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.icone i{
+    font-size: 30px;
+ 
+}
+.icone h3{
+    font-size: 20px;
+    margin-bottom: 29px;
+  }
+.form input{
+ border: none;
+ border-bottom: 2px solid black;
+ margin: 20px 35px;
+ width: 80%;
+}
+.remember{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.remember .rappeler{
+    display: flex;
+    flex-direction: row;
+  
+}
+.remember .rappeler input{
+    accent-color: #3b82fe;
+    
+}
+.remember .rappeler input[type=checkbox]{
+   position: relative;
+   bottom: 18px;
+    
+}
+.remember .rappeler label{
+    position: relative;
+    right: 26px;
+
+}
+.remember .oublier  a{
+    text-decoration: none;
+    color: #3B82F6;
+    position: relative;
+    left: 23px;
+}
+button{
+    margin-bottom: 50px;
+  background-color: #3B82F6;
+  display:flex;
+ color: white;
+  padding: 10px 90px;
+  margin: 20px 95px;
+  border: none;
+  border-radius: 5px;
+}
+.end{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.end a{
+    color:#3B82F6;
+    text-decoration: none;
+}

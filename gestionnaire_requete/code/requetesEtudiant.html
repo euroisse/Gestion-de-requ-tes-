@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="requetesEtudiant.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar"> 
+        <div class="logo">
+            <img src="Nike-logo-076372420C-seeklogo.com.png" alt="logo">
+        </div>
+        
+        <ul>
+                <li><a href="Accueil">Accueil</a></li>
+                <li><a href="Mes requetes">Mes requetes</a></li>
+                <li class="active"><a href="Nouvelles requetes">Nouvelles requetes</a></li>
+                <li><a href="">Statistiques</a></li>
+        </ul>
+        
+        <div class="user-profile">
+           <i class="fa fas fa-bell"></i>
+            <img src="businesswoman-executive-professional-success-concept_53876-137644.JPG" alt="profil">
+           
+        </div>
+    </nav>
+      <!--Conteneur principal-->
+      <div class="container">
+        <!--barre de recherche-->
+        <div class="search-bar">
+            <input type="text" placeholder="recherche...">
+            <button class="Filtre">Filtre</button>
+            <button class="submitrequest"><a href="C:/Users/ryane/Desktop/GESTIONNAIRE%20DE%20REQUETE/code/NouvelleRequete.html">Soumtettre une requete</a></button>
+        </div>
+
+        <!--tableau-->
+        <table id="requestTable">
+            <thead>
+                <tr>
+                    <th>Code UE</th>
+                    <th>Matiere</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+      </div>
+
+      <!--footer-->
+      <footer class="footer">
+        <div class="pass">
+            <div>Rendez-vous sur votre tableau<br>
+                de bord etudiant,puis  cliquez sur <br>
+                "Soumettre une requete"  Remplissez<br>
+               le formulaire et validez</div>
+        
+                <div>Adresse : ENSPD-Douala, Campus Logbessou<br>
+                    Telephone: +237 6 XX XX XX XX <br>
+                    Email : contact@polytechnique-douala.com<br>
+                </div>
+                <div>Site officiel: polytechnique Douala<br>
+                    Portail etudiant: Portail etudiant<br>
+                    polytechnique Douala
+                </div>
+                <div >
+                   <h2>Reseaux sociaux</h2> <br>
+                    Facebook,Twitter,<br>
+                    Linkedin,Youtube
+                </div>
+        </div>
+        
+    </footer>
+    <script>
+        const requests = JSON.parse(localStorage.getItem('requets'));
+        const tableBody = document.getElementById('requestTable tbody');
+            requests.forEach(request => {
+                const row = document.createElement('tr');
+                
+           
+        
+             const newRow = document.createElement('tr');
+
+             row.innerHTML = `
+             <td>$(request.NomEleve)</td>
+              <td>$(request.Année)</td>
+               <td><span class="status"> En attente</span></td>
+               <td>${new Date().toISOString().split('T')[0]}</td>
+               <td> class="action">
+                <i class="fa fa-pencil"></i>
+                <i class="fa fa-trash"></i>
+                </td>`;
+                tableBody.appendChild(row);
+        });
+        
+    </script>
+</body>
+</html>

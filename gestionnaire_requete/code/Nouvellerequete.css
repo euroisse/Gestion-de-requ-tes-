@@ -1,0 +1,125 @@
+ *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+    }
+
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        background-color: #1e3A8A;
+        padding: 9px 20px;
+        margin: 0;
+    }
+.navbar .logo img{
+    height: 10px;
+    width: 20px;
+}
+    .navbar ul{
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar ul li{
+        margin-left: 20px;
+    }
+    .navbar ul li a{
+       color: white;
+       text-decoration: none;
+       font-size: 14px;
+    }
+    .navbar .user-profile{
+        display: flex;
+        align-items: center;
+    }
+    .navbar .user-profile img{
+       border-radius: 50%;
+       width: 35px;
+       height: 30px;
+       margin-left: 30px;
+    }
+    /* Formulaire*/
+
+    .form-container{
+        width: 80%;
+        max-width: 600px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h1{
+      text-align: center;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    .form-group{
+        margin-bottom: 15px;
+    }
+    .form-group label{
+       display: block;
+       font-weight: bold;
+       margin-bottom: 5px;
+    }
+    .form-group input[type="text"],.form-group textarea{
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #ddd;
+     border-radius: 5px;
+     }
+     .form-group textarea{
+        height: 80px;
+    }
+    .form-group .checkbox-group{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .form-group .checkbox-group input[type="checkbox"]{
+       margin-right: 5px;
+    }
+    .submit-btn{
+        display:block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #28a745;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .submit-btn:hover{
+        background-color: #218838;
+    }
+    .footer{
+        display: flex;
+       flex-direction: row;
+        background-color:#3B82F6;
+     
+     
+        text-align: center;
+        padding: 5px 70px;
+        font-size: 14px;
+    }
+    .footer .pass{
+        display: flex;
+        flex-direction: row;
+       gap: 70px;
+        
+    }
+    .footer div{
+        margin-bottom: 5px;
+    }
+    .footer .social-links a {
+      
+        margin:0 5px;
+        text-decoration: none;
+    }
+  
